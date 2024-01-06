@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深中投资网</title>
+</head>
+<body>
+<!-- 2023.12.17 add a button-->
+{#20240104 yguangyong comment temp#}
+<button id="update-button">获得最新股票数据</button>
+<h1>Hello,深中投资网 {{ nowtime }}</h1>
+<li><a href="stock_base_list">股票库列表</a> </li>
+    <script>
+        document.getElementById('update-button').addEventListener('click', function() {
+            fetch('/update-stock-basic-datalist/')
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
